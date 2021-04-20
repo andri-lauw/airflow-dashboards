@@ -1,0 +1,972 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 2,
+    "iteration": 1618488802694,
+    "links": [],
+    "panels": [
+      {
+        "collapsed": true,
+        "datasource": "Central Prometheus",
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 47,
+        "panels": [],
+        "title": "DAG stats",
+        "type": "row"
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "Central Prometheus",
+        "description": "Seconds taken for a DagRun to reach success state",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": null,
+              "filterable": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 1
+        },
+        "hiddenSeries": false,
+        "id": 25,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.2.1",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "airflow_dagrun_duration_success{dag_id=\"$dag_id\"} * 1000",
+            "format": "time_series",
+            "interval": "",
+            "legendFormat": "{{dag_id}} p{{quantile}}",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Success DAG run duration",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "ms",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "Central Prometheus",
+        "description": "Seconds taken for a DagRun to reach failed state",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "mappings": [],
+            "noValue": "0",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 7,
+          "w": 24,
+          "x": 0,
+          "y": 9
+        },
+        "hiddenSeries": false,
+        "id": 49,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.2.1",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "airflow_dagrun_duration_failed{dag_id=\"$dag_id\"} * 1000",
+            "interval": "",
+            "legendFormat": "{{dag_id}} p{{quantile}}",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Failed DAG run duration",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "s",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "Central Prometheus",
+        "description": "Sum of seconds taken to finish tasks aggregated by DAG",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 6,
+          "w": 24,
+          "x": 0,
+          "y": 16
+        },
+        "hiddenSeries": false,
+        "id": 51,
+        "legend": {
+          "alignAsTable": false,
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.2.1",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "(airflow_dag_task_duration{dag_id=\"$dag_id\"}) * 1000",
+            "format": "time_series",
+            "instant": false,
+            "interval": "",
+            "legendFormat": "{{task_id}} p{{quantile}}",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "DAG tasks run duration",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "s",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "Central Prometheus",
+        "description": "Seconds taken to check DAG dependencies",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": null,
+              "filterable": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 7,
+          "w": 24,
+          "x": 0,
+          "y": 22
+        },
+        "hiddenSeries": false,
+        "id": 19,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.2.1",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "airflow_dagrun_dependency_check{dag_id=\"$dag_id\"} * 1000",
+            "interval": "",
+            "legendFormat": "{{dag_id}} p{{quantile}}",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "DAG run dependency check time",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "ms",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "Central Prometheus",
+        "description": "Seconds of delay between the scheduled DagRun start date and the actual DagRun start date",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "unit": "ms"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 6,
+          "w": 24,
+          "x": 0,
+          "y": 29
+        },
+        "hiddenSeries": false,
+        "id": 27,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.2.1",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "airflow_dagrun_schedule_delay{dag_id=\"$dag_id\"} * 1000",
+            "interval": "",
+            "legendFormat": "{{dag_id}} p{{quantile}}",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "DAG run schedule delay",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "ms",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "Central Prometheus",
+        "description": "This metric is not documented in the current version of docs. May not work properly",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "unit": "ms"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 6,
+          "w": 24,
+          "x": 0,
+          "y": 35
+        },
+        "hiddenSeries": false,
+        "id": 52,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.2.1",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "airflow_dag_loading_duration{dag_id=\"$dag_id\"} * 1000",
+            "interval": "",
+            "legendFormat": "{{dag_id}} p{{quantile}}",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "DAG loading duration",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "ms",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 26,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "allValue": null,
+          "current": {
+            "selected": true,
+            "text": "mongo.tvlk-acd-prod.acd.prod.hour_1-v1.0.0",
+            "value": "mongo.tvlk-acd-prod.acd.prod.hour_1-v1.0.0"
+          },
+          "datasource": "Central Prometheus",
+          "definition": "label_values(dag_id)",
+          "error": null,
+          "hide": 0,
+          "includeAll": false,
+          "label": "DAG ID",
+          "multi": false,
+          "name": "dag_id",
+          "options": [
+            {
+              "selected": false,
+              "text": "data-retention",
+              "value": "data-retention"
+            },
+            {
+              "selected": false,
+              "text": "dataops_plaltform-pipeline",
+              "value": "dataops_plaltform-pipeline"
+            },
+            {
+              "selected": false,
+              "text": "dataops_platform_released_pipeline",
+              "value": "dataops_platform_released_pipeline"
+            },
+            {
+              "selected": false,
+              "text": "legacy-postgres-fullcopy-day_1",
+              "value": "legacy-postgres-fullcopy-day_1"
+            },
+            {
+              "selected": false,
+              "text": "mongo-fullcopy-day_1",
+              "value": "mongo-fullcopy-day_1"
+            },
+            {
+              "selected": false,
+              "text": "mongo-fullcopy-hour_1",
+              "value": "mongo-fullcopy-hour_1"
+            },
+            {
+              "selected": false,
+              "text": "mongo-lut-day_1",
+              "value": "mongo-lut-day_1"
+            },
+            {
+              "selected": false,
+              "text": "mongo-lut-hour_1",
+              "value": "mongo-lut-hour_1"
+            },
+            {
+              "selected": false,
+              "text": "mongo-testing-pipeline",
+              "value": "mongo-testing-pipeline"
+            },
+            {
+              "selected": false,
+              "text": "mongo.tvlk-acd-prod.acd.prod.day_1-v1.0.0",
+              "value": "mongo.tvlk-acd-prod.acd.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": true,
+              "text": "mongo.tvlk-acd-prod.acd.prod.hour_1-v1.0.0",
+              "value": "mongo.tvlk-acd-prod.acd.prod.hour_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "mongo.tvlk-acd-prod.revenue.prod.day_1-v1.0.0",
+              "value": "mongo.tvlk-acd-prod.revenue.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "mongo.tvlk-asi-prod.asi.prod.day_1-v1.0.0",
+              "value": "mongo.tvlk-asi-prod.asi.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "mongo.tvlk-asi-stg.asi.stg.day_1-v1.0.0",
+              "value": "mongo.tvlk-asi-stg.asi.stg.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "mongo.tvlk-ast-prod.ast.prod.day_1-v1.0.0",
+              "value": "mongo.tvlk-ast-prod.ast.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "mongo.tvlk-loc-prod.user_platform.prod.day_1-v1.0.0",
+              "value": "mongo.tvlk-loc-prod.user_platform.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "mongo.tvlk-xpe-prod.xpe.prod.day_1-v1.0.0",
+              "value": "mongo.tvlk-xpe-prod.xpe.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "mongo_released_pipeline_v1",
+              "value": "mongo_released_pipeline_v1"
+            },
+            {
+              "selected": false,
+              "text": "mongo_testing_pipeline_v1",
+              "value": "mongo_testing_pipeline_v1"
+            },
+            {
+              "selected": false,
+              "text": "ops_email_check",
+              "value": "ops_email_check"
+            },
+            {
+              "selected": false,
+              "text": "ops_slack_alert_check",
+              "value": "ops_slack_alert_check"
+            },
+            {
+              "selected": false,
+              "text": "pipeline",
+              "value": "pipeline"
+            },
+            {
+              "selected": false,
+              "text": "postgres-testing-pipeline",
+              "value": "postgres-testing-pipeline"
+            },
+            {
+              "selected": false,
+              "text": "postgres.348767535692.flight.prod.hour_1-v1.0.0",
+              "value": "postgres.348767535692.flight.prod.hour_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.348767535692.fpr.prod.hour_1-v1.0.0",
+              "value": "postgres.348767535692.fpr.prod.hour_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.459383651783.acd.prod.day_1-v1.0.0",
+              "value": "postgres.459383651783.acd.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.806020205637.bus.prod.hour_1-v1.0.0",
+              "value": "postgres.806020205637.bus.prod.hour_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-ast-prod.ast.prod.day_1-v1.0.0",
+              "value": "postgres.tvlk-ast-prod.ast.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-ast-prod.ast.prod.hour_1-v1.0.0",
+              "value": "postgres.tvlk-ast-prod.ast.prod.hour_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-ast-prod.astopoc.prod.day_1-v1.0.0",
+              "value": "postgres.tvlk-ast-prod.astopoc.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-cri-prod.cpn.prod.day_1-v1.0.0",
+              "value": "postgres.tvlk-cri-prod.cpn.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-cri-prod.cpn.prod.hour_1-v1.0.0",
+              "value": "postgres.tvlk-cri-prod.cpn.prod.hour_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-ctv-prod.ctv.prod.day_1-v1.0.0",
+              "value": "postgres.tvlk-ctv-prod.ctv.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-ins-prod.ins.prod.day_1-v1.0.0",
+              "value": "postgres.tvlk-ins-prod.ins.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-ins-prod.ins.prod.hour_1-v1.0.0",
+              "value": "postgres.tvlk-ins-prod.ins.prod.hour_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-mfc-prod.plutus.prod.day_1-v1.0.0",
+              "value": "postgres.tvlk-mfc-prod.plutus.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-midas.plutus.prod.day_1-v1.0.0",
+              "value": "postgres.tvlk-midas.plutus.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-pay-prod.payout.prod.day_1-v1.0.0",
+              "value": "postgres.tvlk-pay-prod.payout.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-pay-prod.payout.prod.hour_1-v1.0.0",
+              "value": "postgres.tvlk-pay-prod.payout.prod.hour_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-pts-prod.pts.prod.hour_1-v1.0.0",
+              "value": "postgres.tvlk-pts-prod.pts.prod.hour_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-txt-prod.bxt.prod.day_1-v1.0.0",
+              "value": "postgres.tvlk-txt-prod.bxt.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-txt-prod.bxt.prod.hour_1-v1.0.0",
+              "value": "postgres.tvlk-txt-prod.bxt.prod.hour_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-xpe-stg.xpe.stg.day_1-v1.0.0",
+              "value": "postgres.tvlk-xpe-stg.xpe.stg.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres.tvlk-xxt-prod.xxt.prod.day_1-v1.0.0",
+              "value": "postgres.tvlk-xxt-prod.xxt.prod.day_1-v1.0.0"
+            },
+            {
+              "selected": false,
+              "text": "postgres_released_pipeline",
+              "value": "postgres_released_pipeline"
+            },
+            {
+              "selected": false,
+              "text": "postgres_released_pipeline_v1",
+              "value": "postgres_released_pipeline_v1"
+            },
+            {
+              "selected": false,
+              "text": "postgres_testing_pipeline_v1",
+              "value": "postgres_testing_pipeline_v1"
+            },
+            {
+              "selected": false,
+              "text": "slack_alert",
+              "value": "slack_alert"
+            }
+          ],
+          "query": "label_values(dag_id)",
+          "refresh": 0,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tags": [],
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        }
+      ]
+    },
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ]
+    },
+    "timezone": "",
+    "title": "Airflow DAG dashboard",
+    "uid": "qBWJRGPMz",
+    "version": 3
+  }
